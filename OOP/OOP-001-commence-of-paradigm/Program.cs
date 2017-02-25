@@ -14,7 +14,9 @@ namespace OOP_001_commence_of_paradigm
             string command = Console.ReadLine();
             while (command != "stop")
             {
-                //todo: add processing to the programm, and search users, delation of users, as well as sorting, output, wrting of users into a text file. 
+                //todo: add processing to the programm, adding of users, and search users, 
+                //delation of users, as well as sorting, output, 
+                //wrting of users into a text file. 
                 Console.WriteLine(command);
                 command = Console.ReadLine();     
             }
