@@ -22,9 +22,8 @@ namespace OOP_001_commence_of_paradigm
                     newUser.Id = Convert.ToInt32(Console.ReadLine());                    
                     newUser.Name = Console.ReadLine();
                     newUser.Email = Console.ReadLine();
-                    //todo: add BirthDay property 
-                    
-                    
+                    //todo: add BirthDay property, birthday date format 'year-month-day'
+                                       
                 }
             
             }
