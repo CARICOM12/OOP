@@ -14,18 +14,23 @@ namespace OOP_001_commence_of_paradigm
                 //delation of users, as well as sorting, output, 
                 //wrting of users into a text file. 
                 Console.WriteLine(command);
-                command = Console.ReadLine();
                 if (command == "add-user")
                 {
                     Console.WriteLine("Please enter: id of a user.");
                     User newUser = new User();
-                    newUser.Id = Convert.ToInt32(Console.ReadLine());                    
+                    
+                    newUser.Id = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Please enter a name of a user: ");                  
                     newUser.Name = Console.ReadLine();
+                    Console.WriteLine("Please enter an email of a user: ");
                     newUser.Email = Console.ReadLine();
-                    //todo: add BirthDay property, birthday date format 'year-month-day'
-                                       
+                    Console.WriteLine("Please enter a birth day of a user: ");
+                    newUser.BirthDay = Convert.ToDateTime(Console.ReadLine());
+                    Console.WriteLine("New user: " + newUser);
+
+                                           
                 }
-            
+                command = Console.ReadLine();
             }
 
         }
