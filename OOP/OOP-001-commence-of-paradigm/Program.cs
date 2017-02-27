@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace OOP_001_commence_of_paradigm
 {
@@ -6,6 +7,7 @@ namespace OOP_001_commence_of_paradigm
     {
         static void Main(string[] args)
         {
+            List<User> users = new List<User>();
             Console.WriteLine("Enter please a command: ");
             string command = Console.ReadLine();//'add-user'
             while (command != "stop")
@@ -27,6 +29,8 @@ namespace OOP_001_commence_of_paradigm
                     Console.WriteLine("Please enter a birth day of a user: ");
                     newUser.BirthDay = Convert.ToDateTime(Console.ReadLine());
                     Console.WriteLine("New user: " + newUser);
+                    users.Add(newUser);
+                    Console.WriteLine("Size of list is: " + users.Count);
 
                                            
                 }
