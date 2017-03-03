@@ -14,7 +14,7 @@ namespace OOP_001_commence_of_paradigm
             {
                 //todo: add processing to the programm, adding of users, and search users, 
                 //delation of users, as well as sorting, output, 
-                //wrting of users into a text file. 
+                //writing of users into a text file. 
                 if (command == "add-user")
                 {
                     Console.Write("Please enter id of a user: ");
@@ -29,7 +29,7 @@ namespace OOP_001_commence_of_paradigm
                     newUser.BirthDay = Convert.ToDateTime(Console.ReadLine());
                     Console.WriteLine("New user: " + newUser);
                     users.Add(newUser);
-                    Console.WriteLine("Size of list is: " + users.Count);                  
+                    Console.WriteLine("Size of list is: " + users.Count);
                 }
                 if (command == "list")
                 {
@@ -38,12 +38,12 @@ namespace OOP_001_commence_of_paradigm
                     {
                         Console.WriteLine(user);
                     }
-                   
+
                 }
                 Console.Write("Enter please a command: ");
                 command = Console.ReadLine();
             }
-
+            //todo add writing of users to the text file, read about file input and output in C#.
         }
     }
 }
