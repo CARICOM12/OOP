@@ -1,5 +1,5 @@
 ﻿using System;
-
+      
 namespace OOP_001_commence_of_paradigm
 {
     class User
