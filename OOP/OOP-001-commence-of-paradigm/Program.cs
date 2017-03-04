@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace OOP_001_commence_of_paradigm
 {
@@ -42,6 +43,17 @@ namespace OOP_001_commence_of_paradigm
                 }
                 Console.Write("Enter please a command: ");
                 command = Console.ReadLine();
+                if (command == "save")
+                {
+                    string[] usersJson = new string[users.Count];
+                    for (int i = 0; i < users.Count; i++)
+                    {
+                        usersJson[i] = users[i].ToString();
+                    }
+                    File.WriteAllLines(@"C:\Users\Alexander\WriteLines.txt", usersJson);
+                }             
+                
+
             }
             //todo add writing of users to the text file, read about file input and output in C#.
         }
