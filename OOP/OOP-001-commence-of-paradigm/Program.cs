@@ -40,9 +40,6 @@ namespace OOP_001_commence_of_paradigm
                     {
                         Console.WriteLine(user);
                     }
-
-
-                    
                 }
                 Console.Write("Enter please a command: ");
                 command = Console.ReadLine();
@@ -54,21 +51,13 @@ namespace OOP_001_commence_of_paradigm
                         usersJson[i] = users[i].ToString();
                     }
                     File.WriteAllLines(pathToFile, usersJson);
-                
-                //todo extract absolute path to a variable and apply it instead of string
-
-                if (command == "read")
-                {
-                    
-                    string[] lines = File.ReadAllLines(pathToFile);
-
-                //todo read about JSON format in C# how it is processed in C#
+                    if (command == "read")
+                    {
+                        string[] lines = File.ReadAllLines(pathToFile);
+                    }
                 }
-                   
-                
-
+                //todo add writing of users to the text file, read about file input and output in C#.
             }
-            //todo add writing of users to the text file, read about file input and output in C#.
         }
     }
 }
