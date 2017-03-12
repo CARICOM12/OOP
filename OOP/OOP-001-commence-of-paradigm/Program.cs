@@ -6,6 +6,7 @@ namespace OOP_001_commence_of_paradigm
 {
     class Program
     {
+        static string pathToFile = @"C:\Users\Alexander\WriteLine.txt";
         static void Main(string[] args)
         {
             List<User> users = new List<User>();
@@ -52,13 +53,14 @@ namespace OOP_001_commence_of_paradigm
                     {
                         usersJson[i] = users[i].ToString();
                     }
-                    File.WriteAllLines(@"C:\Users\Alexander\WriteLines.txt", usersJson);
-                }   
+                    File.WriteAllLines(pathToFile, usersJson);
+                
                 //todo extract absolute path to a variable and apply it instead of string
+
                 if (command == "read")
                 {
                     
-                    string[] lines = File.ReadAllLines(@"C:\Users\Alexander\WriteLine.txt");
+                    string[] lines = File.ReadAllLines(pathToFile);
 
                 //todo read about JSON format in C# how it is processed in C#
                 }
