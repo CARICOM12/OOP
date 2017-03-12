@@ -50,11 +50,24 @@ namespace OOP_001_commence_of_paradigm
                     {
                         usersJson[i] = users[i].ToString();
                     }
-                    File.WriteAllLines(pathToFile, usersJson);
-                    if (command == "read")
+                    File.WriteAllLines(pathToFile, usersJson);                    
+                }
+                if (command == "read")
+                {
+                    string[] lines = File.ReadAllLines(pathToFile);
+                    List<User> readedUsers = new List<User>(lines.Length);
+                    foreach (string line in lines)
                     {
-                        string[] lines = File.ReadAllLines(pathToFile);
+                        //2233;sdd;200;12/2/2012 00:00:00 ->
+                        //["2233", "sdd", "200", "12/2/2012 00:00:00"]
+                        string[] result = line.Split(new char[] { ';' });
+                        User newUser = new User();
+                        newUser.Id = Convert.ToInt32(result[0]);
+                        newUser.Name = result[1];
+                        newUser.Email = result[2];
+                        newUser.BirthDay = Convert.ToDateTime(result[3]);
                     }
+                    
                 }
                 //todo add writing of users to the text file, read about file input and output in C#.
             }
