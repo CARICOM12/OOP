@@ -20,7 +20,7 @@ namespace OOP_001_commence_of_paradigm
                 if (command == "add-user")
                 {
                     Console.Write("Please enter id of a user: ");
-                    User newUser = new User();
+                    User newUser = new User();//create a new instance of the User
 
                     newUser.Id = Convert.ToInt32(Console.ReadLine());
                     Console.Write("Please enter a name of a user: ");
@@ -41,16 +41,15 @@ namespace OOP_001_commence_of_paradigm
                         Console.WriteLine(user);
                     }
                 }
-                Console.Write("Enter please a command: ");
-                command = Console.ReadLine();
+                
                 if (command == "save")
                 {
-                    string[] usersJson = new string[users.Count];
+                    string[] usersStrings = new string[users.Count];
                     for (int i = 0; i < users.Count; i++)
                     {
-                        usersJson[i] = users[i].ToString();
+                        usersStrings[i] = users[i].ToString();
                     }
-                    File.WriteAllLines(pathToFile, usersJson);                    
+                    File.WriteAllLines(pathToFile, usersStrings);                    
                 }
                 if (command == "read")
                 {
@@ -66,10 +65,13 @@ namespace OOP_001_commence_of_paradigm
                         newUser.Name = result[1];
                         newUser.Email = result[2];
                         newUser.BirthDay = Convert.ToDateTime(result[3]);
+                        users.Add(newUser);
                     }
                     
                 }
                 //todo add writing of users to the text file, read about file input and output in C#.
+                Console.Write("Enter please a command: ");
+                command = Console.ReadLine();
             }
         }
     }
