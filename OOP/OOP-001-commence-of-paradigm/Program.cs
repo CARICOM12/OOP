@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace OOP_001_commence_of_paradigm
 {
@@ -41,7 +42,7 @@ namespace OOP_001_commence_of_paradigm
                         Console.WriteLine(user);
                     }
                 }
-                
+
                 if (command == "save")
                 {
                     string[] usersStrings = new string[users.Count];
@@ -49,7 +50,7 @@ namespace OOP_001_commence_of_paradigm
                     {
                         usersStrings[i] = users[i].ToString();
                     }
-                    File.WriteAllLines(pathToFile, usersStrings);                    
+                    File.WriteAllLines(pathToFile, usersStrings);
                 }
                 if (command == "read")
                 {
@@ -67,11 +68,33 @@ namespace OOP_001_commence_of_paradigm
                         newUser.BirthDay = Convert.ToDateTime(result[3]);
                         users.Add(newUser);
                     }
-                    
                 }
-                //todo add writing of users to the text file, read about file input and output in C#.
                 Console.Write("Enter please a command: ");
                 command = Console.ReadLine();
+            }
+        }
+
+        public void RemoveDuplicate(List<User> deleteDup)
+        {
+            //[1,2,2,3,4] - deleteDup
+            //[] - uniqueUsers
+            //1.currentItem=1, if=true -> uniqueUsers = [1]
+            //2.currentItem=2, if=true -> uniqueUsers = [1,2]
+            //3.currentItem=2, if=false -> uniqueUsers = [1,2]
+            //4.currentItem=3, if=true -> uniqueUsers = [1,2,3]
+            //5.currentItem=4, if=true -> uniqueUsers = [1,2,3,4]
+
+
+            //todo how to remove all items from List and how to add items from one List to second one 
+            //also "optionally" read about getHash code and object methods from a class 
+
+            List<User> uniqueUsers = new List<User>();
+            foreach (User currentItem in deleteDup)
+            {
+                if (!uniqueUsers.Contains(currentItem))
+                {
+                    uniqueUsers.Add(currentItem);
+                }
             }
         }
     }
