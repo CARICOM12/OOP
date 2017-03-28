@@ -1,10 +1,10 @@
 ﻿using System;
-      
+
 namespace OOP_001_commence_of_paradigm
 {
     class User
     {
-        public int Id { set; get; }                
+        public int Id { set; get; }
         public string Name { set; get; }
         public string Email { set; get; }
         public DateTime BirthDay { set; get; }
@@ -18,5 +18,16 @@ namespace OOP_001_commence_of_paradigm
         {
             return Id + ";" + Name + ";" + Email + ";" + BirthDay;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is User)
+            {
+                User user = obj as User;
+                return Id == user.Id && Name == user.Name && Email == user.Email && BirthDay == user.BirthDay;
+            }
+            return false;
+        }
+
     }
 }

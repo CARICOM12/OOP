@@ -32,6 +32,7 @@ namespace OOP_001_commence_of_paradigm
                     newUser.BirthDay = Convert.ToDateTime(Console.ReadLine());
                     Console.WriteLine("New user: " + newUser);
                     users.Add(newUser);
+                    RemoveDuplicate(users);
                     Console.WriteLine("Size of list is: " + users.Count);
                 }
                 if (command == "list")
@@ -67,6 +68,7 @@ namespace OOP_001_commence_of_paradigm
                         newUser.Email = result[2];
                         newUser.BirthDay = Convert.ToDateTime(result[3]);
                         users.Add(newUser);
+                        RemoveDuplicate(users);
                     }
                 }
                 Console.Write("Enter please a command: ");
@@ -74,7 +76,7 @@ namespace OOP_001_commence_of_paradigm
             }
         }
 
-        public void RemoveDuplicate(List<User> deleteDup)
+        public static void RemoveDuplicate(List<User> deleteDup)
         {
             //[1,2,2,3,4] - deleteDup
             //[] - uniqueUsers
@@ -94,8 +96,11 @@ namespace OOP_001_commence_of_paradigm
                 if (!uniqueUsers.Contains(currentItem))
                 {
                     uniqueUsers.Add(currentItem);
+
                 }
             }
+            deleteDup.Clear();
+            deleteDup.AddRange(uniqueUsers);
         }
     }
 }
