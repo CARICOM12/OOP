@@ -47,6 +47,8 @@ namespace OOP_001_commence_of_paradigm
                 if (command == "save")
                 {
                     string[] usersStrings = new string[users.Count];
+                    //[type] [variable-name] = new [type]
+
                     for (int i = 0; i < users.Count; i++)
                     {
                         usersStrings[i] = users[i].ToString();
@@ -85,10 +87,6 @@ namespace OOP_001_commence_of_paradigm
             //3.currentItem=2, if=false -> uniqueUsers = [1,2]
             //4.currentItem=3, if=true -> uniqueUsers = [1,2,3]
             //5.currentItem=4, if=true -> uniqueUsers = [1,2,3,4]
-
-
-            //todo how to remove all items from List and how to add items from one List to second one 
-            //also "optionally" read about getHash code and object methods from a class 
 
             List<User> uniqueUsers = new List<User>();
             foreach (User currentItem in deleteDup)
