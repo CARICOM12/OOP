@@ -13,7 +13,7 @@ namespace OOP_001_commence_of_paradigm
         {
             List<User> users = new List<User>();
             ConsoleUtills.PrintMessage("Enter please a command: ");
-            string command = Console.ReadLine();//'add-user'
+            string command = ConsoleUtills.ReadString();//'add-user'
             while (command != "stop")
             {
                 //todo: add processing to the programm, adding of users, and search users, 
@@ -75,7 +75,7 @@ namespace OOP_001_commence_of_paradigm
                     }
                 }
                 ConsoleUtills.PrintMessage("Enter please a command: ");
-                command = Console.ReadLine();
+                command = ConsoleUtills.ReadString();
             }
         }
 
