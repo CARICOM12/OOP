@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Amen_0001;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace OOP_001_commence_of_paradigm
         static void Main(string[] args)
         {
             List<User> users = new List<User>();
-            Console.Write("Enter please a command: ");
+            ConsoleUtills.PrintMessage("Enter please a command: ");
             string command = Console.ReadLine();//'add-user'
             while (command != "stop")
             {
@@ -20,24 +21,24 @@ namespace OOP_001_commence_of_paradigm
                 //writing of users into a text file. 
                 if (command == "add-user")
                 {
-                    Console.Write("Please enter id of a user: ");
+                    ConsoleUtills.PrintMessage("Please enter id of a user: ");
                     User newUser = new User();//create a new instance of the User
 
                     newUser.Id = Convert.ToInt32(Console.ReadLine());
-                    Console.Write("Please enter a name of a user: ");
+                    ConsoleUtills.PrintMessage("Please enter a name of a user: ");
                     newUser.Name = Console.ReadLine();
-                    Console.Write("Please enter an email of a user: ");
+                    ConsoleUtills.PrintMessage("Please enter an email of a user: ");
                     newUser.Email = Console.ReadLine();
-                    Console.Write("Please enter a birth day of a user: ");
+                    ConsoleUtills.PrintMessage("Please enter a birth day of a user: ");
                     newUser.BirthDay = Convert.ToDateTime(Console.ReadLine());
-                    Console.WriteLine("New user: " + newUser);
+                    ConsoleUtills.PrintMessage("New user: " + newUser);
                     users.Add(newUser);
                     RemoveDuplicate(users);
-                    Console.WriteLine("Size of list is: " + users.Count);
+                    ConsoleUtills.("Size of list is: " + users.Count);
                 }
                 if (command == "list")
                 {
-                    Console.WriteLine("Here is a full list of users: ");
+                    ConsoleUtills.PrintMessage("Here is a full list of users: ");
                     foreach (var user in users)
                     {
                         Console.WriteLine(user);
@@ -73,7 +74,7 @@ namespace OOP_001_commence_of_paradigm
                         RemoveDuplicate(users);
                     }
                 }
-                Console.Write("Enter please a command: ");
+                ConsoleUtills.PrintMessage("Enter please a command: ");
                 command = Console.ReadLine();
             }
         }
