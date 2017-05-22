@@ -12,8 +12,7 @@ namespace OOP_001_commence_of_paradigm
         static void Main(string[] args)
         {
             List<User> users = new List<User>();
-            ConsoleUtills.PrintMessage("Enter please a command: ");
-            string command = ConsoleUtills.ReadString();//'add-user'
+            string command = ConsoleUtills.ReadString("Enter please a command: ");//'add-user'
             while (command != "stop")
             {
                 //todo: add processing to the programm, adding of users, and search users, 
