@@ -8,10 +8,12 @@ namespace OOP_001_commence_of_paradigm
 {
     class Program
     {
+        static List<User> users = new List<User>();
+
         static string pathToFile = @"C:\Users\Alexander\WriteLine.txt";
         static void Main(string[] args)
         {
-            List<User> users = new List<User>();
+            
             string command = ConsoleUtills.ReadString("Enter please a command: ");//'add-user'
             while (command != "stop")
             {
@@ -20,16 +22,7 @@ namespace OOP_001_commence_of_paradigm
                 //writing of users into a text file. 
                 if (command == "add-user")
                 {
-                    User newUser = new User();//create a new instance of the User
-
-                    newUser.Id = ConsoleUtills.ReadInt("Please enter id of a user: ");
-                    newUser.Name = ConsoleUtills.ReadString("Please enter a name of a user: ");
-                    newUser.Email = ConsoleUtills.ReadString("Please enter an email of a user: ");
-                    newUser.BirthDay = ConsoleUtills.ReadDate("Please enter a birth day of a user: ");
-                    ConsoleUtills.PrintMessage("New user: " + newUser);
-                    users.Add(newUser);
-                    RemoveDuplicate(users);
-                    ConsoleUtills.PrintMessage("Size of list is: " + users.Count);
+                    AddUser();
                 }
                 if (command == "list")
                 {
@@ -72,6 +65,20 @@ namespace OOP_001_commence_of_paradigm
                 ConsoleUtills.PrintMessage("Enter please a command: ");
                 command = ConsoleUtills.ReadString();
             }
+        }
+
+        private static void AddUser()
+        {
+            User newUser = new User();//create a new instance of the User
+
+            newUser.Id = ConsoleUtills.ReadInt("Please enter id of a user: ");
+            newUser.Name = ConsoleUtills.ReadString("Please enter a name of a user: ");
+            newUser.Email = ConsoleUtills.ReadString("Please enter an email of a user: ");
+            newUser.BirthDay = ConsoleUtills.ReadDate("Please enter a birth day of a user: ");
+            ConsoleUtills.PrintMessage("New user: " + newUser);
+            users.Add(newUser);
+            RemoveDuplicate(users);
+            ConsoleUtills.PrintMessage("Size of list is: " + users.Count);
         }
 
         public static void RemoveDuplicate(List<User> deleteDup)
