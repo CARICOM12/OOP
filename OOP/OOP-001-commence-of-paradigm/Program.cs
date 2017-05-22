@@ -21,27 +21,23 @@ namespace OOP_001_commence_of_paradigm
                 //writing of users into a text file. 
                 if (command == "add-user")
                 {
-                    ConsoleUtills.PrintMessage("Please enter id of a user: ");
                     User newUser = new User();//create a new instance of the User
 
-                    newUser.Id = Convert.ToInt32(Console.ReadLine());
-                    ConsoleUtills.PrintMessage("Please enter a name of a user: ");
-                    newUser.Name = Console.ReadLine();
-                    ConsoleUtills.PrintMessage("Please enter an email of a user: ");
-                    newUser.Email = Console.ReadLine();
-                    ConsoleUtills.PrintMessage("Please enter a birth day of a user: ");
-                    newUser.BirthDay = Convert.ToDateTime(Console.ReadLine());
+                    newUser.Id = ConsoleUtills.ReadInt("Please enter id of a user: ");
+                    newUser.Name = ConsoleUtills.ReadString("Please enter a name of a user: ");
+                    newUser.Email = ConsoleUtills.ReadString("Please enter an email of a user: ");
+                    newUser.BirthDay = ConsoleUtills.ReadDate("Please enter a birth day of a user: ");
                     ConsoleUtills.PrintMessage("New user: " + newUser);
                     users.Add(newUser);
                     RemoveDuplicate(users);
-                    ConsoleUtills.("Size of list is: " + users.Count);
+                    ConsoleUtills.PrintMessage("Size of list is: " + users.Count);
                 }
                 if (command == "list")
                 {
                     ConsoleUtills.PrintMessage("Here is a full list of users: ");
                     foreach (var user in users)
                     {
-                        Console.WriteLine(user);
+                        ConsoleUtills.PrintMessage(user.ToString());
                     }
                 }
 

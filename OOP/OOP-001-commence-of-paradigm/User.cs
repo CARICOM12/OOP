@@ -9,6 +9,28 @@ namespace OOP_001_commence_of_paradigm
         public string Email { set; get; }
         public DateTime BirthDay { set; get; }
 
+        public override Boolean Equals(Object o)
+        {
+            if (this == o) return true;
+            if (o == null || this.GetType() != o.GetType()) return false;
+
+            User user = (User)o;
+
+            if (Id != user.Id) return false;
+            if (Name != null ? !Name.Equals(user.Name) : user.Name != null) return false;
+            if (Email != null ? !Email.Equals(user.Email) : user.Email != null) return false;
+            return BirthDay != null ? BirthDay.Equals(user.BirthDay) : user.BirthDay == null;
+        }
+
+        public override int GetHashCode()
+        {
+            int result = Id;
+            result = 31 * result + (Name != null ? Name.GetHashCode() : 0);
+            result = 31 * result + (Email != null ? Email.GetHashCode() : 0);
+            result = 31 * result + (BirthDay != null ? BirthDay.GetHashCode() : 0);
+            return result;
+        }
+        
         /// <summary>
         /// Returns string representation of the User:
         /// property values splited by semicolumn.
@@ -17,16 +39,6 @@ namespace OOP_001_commence_of_paradigm
         public override string ToString()
         {
             return Id + ";" + Name + ";" + Email + ";" + BirthDay;
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (obj is User)
-            {
-                User user = obj as User;
-                return Id == user.Id && Name == user.Name && Email == user.Email && BirthDay == user.BirthDay;
-            }
-            return false;
         }
 
     }
