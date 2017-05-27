@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Amen_0001
+namespace ContactManager
 {
     public class ConsoleUtills
     {

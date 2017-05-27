@@ -1,10 +1,9 @@
-﻿using Amen_0001;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace OOP_001_commence_of_paradigm
+namespace ContactManager
 {
     class Program
     {
