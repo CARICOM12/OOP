@@ -8,11 +8,11 @@ namespace ContactManager
     class Program
     {
         static List<User> users = new List<User>();
-       
+      
         static string pathToFile = @"C:\Users\Alexander\WriteLine.txt";
+
         static void Main(string[] args)
         {
-            
             string command = ConsoleUtills.ReadString("Enter please a command: ");//'add-user'
             while (command != "stop")
             {
@@ -23,6 +23,7 @@ namespace ContactManager
                 {
                     AddUser();
                 }
+
                 if (command == "list")
                 {
                     PrintUsers();
@@ -37,8 +38,7 @@ namespace ContactManager
                 {
                     LoadAllUsersFromFile();
                 }
-                ConsoleUtills.PrintMessage("Enter please a command: ");
-                command = ConsoleUtills.ReadString();
+                command = ConsoleUtills.ReadString("Enter please a command: ");
             }
         }
 
@@ -95,6 +95,7 @@ namespace ContactManager
                 RemoveDuplicate(users);
             }
         }
+
         public static void RemoveDuplicate(List<User> deleteDup)
         {
             //[1,2,2,3,4] - deleteDup
