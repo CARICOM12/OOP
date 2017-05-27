@@ -30,32 +30,12 @@ namespace ContactManager
 
                 if (command == "save")
                 {
-                    string[] usersStrings = new string[users.Count];
-                    //[type] [variable-name] = new [type]
-
-                    for (int i = 0; i < users.Count; i++)
-                    {
-                        usersStrings[i] = users[i].ToString();
-                    }
-                    File.WriteAllLines(pathToFile, usersStrings);
+                    SaveToFile();
                 }
+
                 if (command == "read")
                 {
-                    string[] lines = File.ReadAllLines(pathToFile);
-                    List<User> readedUsers = new List<User>(lines.Length);
-                    foreach (string line in lines)
-                    {
-                        //2233;sdd;200;12/2/2012 00:00:00 ->
-                        //["2233", "sdd", "200", "12/2/2012 00:00:00"]
-                        string[] result = line.Split(new char[] { ';' });
-                        User newUser = new User();
-                        newUser.Id = Convert.ToInt32(result[0]);
-                        newUser.Name = result[1];
-                        newUser.Email = result[2];
-                        newUser.BirthDay = Convert.ToDateTime(result[3]);
-                        users.Add(newUser);
-                        RemoveDuplicate(users);
-                    }
+                    LoadAllUsersFromFile();
                 }
                 ConsoleUtills.PrintMessage("Enter please a command: ");
                 command = ConsoleUtills.ReadString();
@@ -85,6 +65,36 @@ namespace ContactManager
             }
         }
 
+        private static void SaveToFile()
+        {
+            string[] usersStrings = new string[users.Count];
+            //[type] [variable-name] = new [type]
+
+            for (int i = 0; i < users.Count; i++)
+            {
+                usersStrings[i] = users[i].ToString();
+            }
+            File.WriteAllLines(pathToFile, usersStrings);
+        }
+
+        private static void LoadAllUsersFromFile()
+        {
+            string[] lines = File.ReadAllLines(pathToFile);
+            List<User> readedUsers = new List<User>(lines.Length);
+            foreach (string line in lines)
+            {
+                //2233;sdd;200;12/2/2012 00:00:00 ->
+                //["2233", "sdd", "200", "12/2/2012 00:00:00"]
+                string[] result = line.Split(new char[] { ';' });
+                User newUser = new User();
+                newUser.Id = Convert.ToInt32(result[0]);
+                newUser.Name = result[1];
+                newUser.Email = result[2];
+                newUser.BirthDay = Convert.ToDateTime(result[3]);
+                users.Add(newUser);
+                RemoveDuplicate(users);
+            }
+        }
         public static void RemoveDuplicate(List<User> deleteDup)
         {
             //[1,2,2,3,4] - deleteDup
