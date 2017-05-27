@@ -8,7 +8,7 @@ namespace ContactManager
     class Program
     {
         static List<User> users = new List<User>();
-
+       
         static string pathToFile = @"C:\Users\Alexander\WriteLine.txt";
         static void Main(string[] args)
         {
@@ -25,11 +25,7 @@ namespace ContactManager
                 }
                 if (command == "list")
                 {
-                    ConsoleUtills.PrintMessage("Here is a full list of users: ");
-                    foreach (var user in users)
-                    {
-                        ConsoleUtills.PrintMessage(user.ToString());
-                    }
+                    PrintUsers();
                 }
 
                 if (command == "save")
@@ -78,6 +74,15 @@ namespace ContactManager
             users.Add(newUser);
             RemoveDuplicate(users);
             ConsoleUtills.PrintMessage("Size of list is: " + users.Count);
+        }
+
+        private static void PrintUsers()
+        {
+            ConsoleUtills.PrintMessage("Here is a full list of users: ");
+            foreach (var user in users)
+            {
+                ConsoleUtills.PrintMessage(user.ToString());
+            }
         }
 
         public static void RemoveDuplicate(List<User> deleteDup)
