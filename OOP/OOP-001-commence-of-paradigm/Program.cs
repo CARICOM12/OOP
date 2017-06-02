@@ -13,32 +13,34 @@ namespace ContactManager
 
         static void Main(string[] args)
         {
-            string command = ConsoleUtills.ReadString("Enter please a command: ");//'add-user'
-            while (command != "stop")
+            int commandNumber = ConsoleUtills.ReadInt("Enter please a command: ");//'add-user'
+            Commands command = (Commands)commandNumber;
+            while (command != Commands.Stop)
             {
                 //todo: add processing to the programm, adding of users, and search users, 
                 //delation of users, as well as sorting, output, 
                 //writing of users into a text file. 
-                if (command == "add-user")
+                if (command == Commands.AddUser)
                 {
                     AddUser();
                 }
 
-                if (command == "list")
+                if (command == Commands.List)
                 {
                     PrintUsers();
                 }
 
-                if (command == "save")
+                if (command == Commands.Save)
                 {
                     SaveToFile();
                 }
 
-                if (command == "read")
+                if (command == Commands.Read )
                 {
                     LoadAllUsersFromFile();
                 }
-                command = ConsoleUtills.ReadString("Enter please a command: ");
+                commandNumber = ConsoleUtills.ReadInt("Enter please a command: ");
+                command = (Commands)commandNumber;
             }
         }
 
