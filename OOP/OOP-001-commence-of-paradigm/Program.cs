@@ -15,29 +15,26 @@ namespace ContactManager
         {
             int commandNumber = ConsoleUtills.ReadInt("Enter please a command: ");//'add-user'
             Commands command = (Commands)commandNumber;
-            while (command != Commands.Stop)
+            while  (command != Commands.Stop)
             {
                 //todo: add processing to the programm, adding of users, and search users, 
                 //delation of users, as well as sorting, output, 
                 //writing of users into a text file. 
-                if (command == Commands.AddUser)
-                {
-                    AddUser();
-                }
 
-                if (command == Commands.List)
+                switch (command)
                 {
-                    PrintUsers();
-                }
-
-                if (command == Commands.Save)
-                {
-                    SaveToFile();
-                }
-
-                if (command == Commands.Read )
-                {
-                    LoadAllUsersFromFile();
+                    case Commands.AddUser:
+                        AddUser();
+                        break;
+                    case Commands.List:
+                        PrintUsers();
+                        break;
+                    case Commands.Save:
+                        SaveToFile();
+                        break;
+                    case Commands.Read:
+                        LoadAllUsersFromFile();
+                        break;
                 }
                 commandNumber = ConsoleUtills.ReadInt("Enter please a command: ");
                 command = (Commands)commandNumber;
