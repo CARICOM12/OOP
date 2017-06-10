@@ -6,11 +6,11 @@ namespace ContactManager
 {
     class Program
     {
-        static List<User> users = new List<User>();
-      
-        static string pathToFile = @"C:\Users\Alexander\WriteLine.txt";
+        private const string PathToFile = @"C:\Users\Alexander\WriteLine.txt";
 
-        static void Main(string[] args)
+        private static List<User> users = new List<User>();        
+
+        public static void Main(string[] args)
         {
             int commandNumber = ShowCommandMessage();
             Commands command = (Commands)commandNumber;
@@ -87,12 +87,12 @@ namespace ContactManager
             {
                 usersStrings[i] = users[i].ToString();
             }
-            File.WriteAllLines(pathToFile, usersStrings);
+            File.WriteAllLines(PathToFile, usersStrings);
         }
 
         private static void LoadAllUsersFromFile()
         {
-            string[] lines = File.ReadAllLines(pathToFile);
+            string[] lines = File.ReadAllLines(PathToFile);
             List<User> readedUsers = new List<User>(lines.Length);
             foreach (string line in lines)
             {
