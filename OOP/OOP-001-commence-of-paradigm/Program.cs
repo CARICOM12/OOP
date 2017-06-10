@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 namespace ContactManager
 {
@@ -13,7 +12,7 @@ namespace ContactManager
 
         static void Main(string[] args)
         {
-            int commandNumber = ConsoleUtills.ReadInt("Enter please a command: ");//'add-user'
+            int commandNumber = ShowCommandMessage();
             Commands command = (Commands)commandNumber;
             while  (command != Commands.Stop)
             {
@@ -36,9 +35,24 @@ namespace ContactManager
                         LoadAllUsersFromFile();
                         break;
                 }
-                commandNumber = ConsoleUtills.ReadInt("Enter please a command: ");
+                ShowCommandMessage();
                 command = (Commands)commandNumber;
             }
+
+            //Please, select the command: 
+            //
+        }
+
+        private static int ShowCommandMessage()
+        {
+            var commands = Enum.GetValues(typeof(Commands));
+            string requestMessage = "Enter please a command ";
+            ConsoleUtills.PrintMessage("List of available commands: ");
+            foreach (var command in commands)
+            {
+                ConsoleUtills.PrintMessage( (int) command + " " + (Commands) command);
+            }
+            return ConsoleUtills.ReadInt(requestMessage);
         }
 
         private static void AddUser()
