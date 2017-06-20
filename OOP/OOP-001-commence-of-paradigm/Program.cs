@@ -12,7 +12,7 @@ namespace ContactManager
 
         public static void Main(string[] args)
         {
-            int commandNumber = ShowCommandMessage();
+            int commandNumber = ReadCommand();
             Commands command = (Commands)commandNumber;
             while  (command != Commands.Stop)
             {
@@ -35,7 +35,7 @@ namespace ContactManager
                         LoadAllUsersFromFile();
                         break;
                 }
-                ShowCommandMessage();
+                commandNumber = ReadCommand();
                 command = (Commands)commandNumber;
             }
 
@@ -43,7 +43,7 @@ namespace ContactManager
             //
         }
 
-        private static int ShowCommandMessage()
+        private static int ReadCommand()
         {
             var commands = Enum.GetValues(typeof(Commands));
             string requestMessage = "Enter please a command ";
